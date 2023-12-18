@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <RecoilRoot>
-        <h1 className="text-red">심심스 토이프로젝트 1조</h1>
+        <h1 className="text-title01 text-green">얘들아 행복하자</h1>
       </RecoilRoot>
     </>
   );
