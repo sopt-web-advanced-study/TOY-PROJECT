@@ -9,4 +9,5 @@ module.exports = {
   bracketSameLine: true,
   arrowParens: "avoid",
   endOfLine: "auto",
+  plugins: ["prettier-plugin-tailwindcss"],
 };

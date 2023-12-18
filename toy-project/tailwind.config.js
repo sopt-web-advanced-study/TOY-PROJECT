@@ -18,8 +18,8 @@ module.exports = {
       white: '#ffffff',
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      sans: ['SF_HailSnow', 'sans-serif'],
+      serif: ['SF_HailSnow', 'serif'],
     },},
   },
   plugins: [],
