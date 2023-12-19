@@ -15,6 +15,10 @@
     @apply rounded-3xl text-subTitle02 text-white shadow-[0_4px_4px_0_rgba(0,0,0,0.25)];
   }
 
+  .filteringFollowButton {
+    @apply h-[30px] w-[80px] rounded-[10px] bg-white text-subTitle02 text-black;
+  }
+
   .commonBackground {
     @apply rounded-[10px] bg-main01;
   }
