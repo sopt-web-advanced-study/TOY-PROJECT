@@ -20,8 +20,8 @@ export default function Profiole() {
         <span className="text-title01">NAME</span>
         <span className="text-subTitle01">BIO</span>
         <div className="flex gap-[22px] ">
-          <button className="commonButton h-[25px] w-[58px] bg-red">팔로워</button>
-          <button className="commonButton h-[25px] w-[58px] bg-green">팔로잉</button>
+          <button className="commonButton h-[25px] w-[58px] bg-red text-white">팔로워 10</button>
+          <button className="commonButton h-[25px] w-[58px] bg-green text-white">팔로잉 10</button>
         </div>
       </div>
     </section>
