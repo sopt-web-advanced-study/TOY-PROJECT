@@ -10,7 +10,7 @@ export default function CheckFollow() {
       <Profile />
       <FollowOrNotBtn />
       <FollowList />
-      <button className="mt-[34px] h-[45px] rounded-[5px] border-2 border-solid border-grey02 bg-sub01 text-title01 text-white ">
+      <button className="mt-[34px] h-[45px] rounded-[5px] border-2 border-solid border-grey02 bg-sub01 text-title01 text-white hover:bg-grey02">
         맞팔하기
       </button>
     </article>
