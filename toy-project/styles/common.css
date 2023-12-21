@@ -8,7 +8,7 @@
   }
 
   .followBackButton {
-    @apply h-[4.5rem] w-[29.6rem] rounded-[15px] border-2 border-solid border-grey02 bg-sub01 text-title01 text-white;
+    @apply h-[4.5rem] w-[29.6rem] rounded-[5px] border-2 border-solid border-grey02 bg-sub01 text-title01 text-white;
   }
 
   .commonButton {
