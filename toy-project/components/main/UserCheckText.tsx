@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function UserCheckText() {
   return (
     <div className="userCheckTextWrapper w-[29.6rem] gap-[2.2rem]">
