@@ -98,7 +98,7 @@
 
   body {
     margin: 0 auto;
-    background: url('/backgroundImg.png') no-repeat center center;
+    background: url('/backgroundImg.png') no-repeat;
     width: 39rem;
     height: 84.4rem;
     letter-spacing: normal;
