@@ -16,10 +16,14 @@
   }
 
   .filteringFollowButton {
-    @apply h-[30px] w-[80px] rounded-[10px] bg-white text-subTitle02 text-black;
+    @apply h-[30px] w-[80px] rounded-[10px] bg-white text-subTitle02 text-black hover:bg-green hover:text-white;
   }
 
   .commonBackground {
     @apply rounded-[10px] bg-main01;
+  }
+
+  .selectButtonTheme {
+    @apply h-[25px] w-[65px] bg-white text-black hover:bg-red hover:text-white;
   }
 }
