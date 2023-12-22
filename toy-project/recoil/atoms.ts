@@ -12,18 +12,12 @@ export const profileInfo = atom<ProfileType>({
   },
 });
 
-export const followerList = atom<followList>({
+export const followerList = atom<followList[]>({
   key: 'followerList',
-  default: {
-    login: '',
-    avatar_url: '',
-  },
+  default: [{ id: 0, login: '', avatar_url: '' }],
 });
 
-export const followingList = atom<followList>({
+export const followingList = atom<followList[]>({
   key: 'followingList',
-  default: {
-    login: '',
-    avatar_url: '',
-  },
+  default: [{ id: 0, login: '', avatar_url: '' }],
 });

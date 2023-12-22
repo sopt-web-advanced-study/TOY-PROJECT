@@ -7,6 +7,7 @@ export interface ProfileType {
 }
 
 export interface followList {
+  id: number;
   login: string;
   avatar_url: string;
 }
