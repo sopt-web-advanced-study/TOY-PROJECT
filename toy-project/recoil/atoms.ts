@@ -26,3 +26,8 @@ export const followState = atom<string>({
   key: 'followState',
   default: 'follow',
 });
+
+export const checkState = atom<boolean>({
+  key: 'checkState',
+  default: false,
+});
