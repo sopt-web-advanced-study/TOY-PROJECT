@@ -2,6 +2,7 @@
 
 import { getProfileInfo } from '@/apis/getProfileInfo';
 import { profileInfo } from '@/recoil/atoms';
+import Image from 'next/image';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 
@@ -17,14 +18,14 @@ export default function Profile() {
   return (
     <section className="p-y-[30px] p-x-[25px] commonBackground flex h-[150px] h-[150px] w-[340px] gap-[12px]">
       <div className="w-2/5 pl-[40px] pt-[28px]">
-        {/* <Image src={avatar_url} alt="프로필이미지" width={90} height={90} className="relative rounded-full" />
+        <Image src={avatar_url} alt="프로필이미지" width={90} height={90} className="absolute rounded-full" />
         <Image
           src="/santahat.png"
           alt="산타모자"
           width={40}
           height={40}
-          className="absolute left-[-5px] top-[-20px] rotate-[340deg]"
-        /> */}
+          className="absolute top-[40px] rotate-[340deg]"
+        />
       </div>
       <div className="flex flex-col justify-center gap-[12px]">
         <span className="text-title01">{login}</span>
