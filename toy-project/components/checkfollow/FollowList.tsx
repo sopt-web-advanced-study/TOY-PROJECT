@@ -1,20 +1,32 @@
 'use client';
 
 import { getFollowerList, getFollowingList } from '@/apis/getFollowList';
-import { followerList, followingList } from '@/recoil/atoms';
+import { followState, followerList, followingList } from '@/recoil/atoms';
 import { followList } from '@/types/types';
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import ListElement from './ListElement';
 
 export default function FollowList() {
   const [followers, setFollowers] = useRecoilState(followerList);
   const [followings, setFollowings] = useRecoilState(followingList);
+  const btnState = useRecoilValue(followState);
 
   useEffect(() => {
     getFollowingList(setFollowings);
     getFollowerList(setFollowers);
   }, []);
+
+  const followerID = followers.map(user => user.id);
+  const followingID = followings.map(user => user.id);
+
+  const followEachOther = followings.filter(user => {
+    return followerID.includes(user.id) && user;
+  });
+
+  const notFollowEachOther = followers.filter(user => {
+    return !followingID.includes(user.id) && user;
+  });
 
   return (
     <section className="commonBackground flex h-[480px] w-full flex-col">
@@ -27,10 +39,15 @@ export default function FollowList() {
         </button>
       </div>
       <div className="flex h-[350px] w-[340px] flex-col gap-[20px] overflow-scroll py-[5px]">
-        {followings.map((user: followList) => {
-          const { id, login, avatar_url } = user;
-          return <ListElement key={id} id={id} login={login} avatar_url={avatar_url} />;
-        })}
+        {btnState === 'follow'
+          ? followEachOther.map((user: followList) => {
+              const { id, login, avatar_url } = user;
+              return <ListElement key={id} id={id} login={login} avatar_url={avatar_url} />;
+            })
+          : notFollowEachOther.map((user: followList) => {
+              const { id, login, avatar_url } = user;
+              return <ListElement key={id} id={id} login={login} avatar_url={avatar_url} />;
+            })}
       </div>
     </section>
   );

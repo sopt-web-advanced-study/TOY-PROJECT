@@ -21,3 +21,8 @@ export const followingList = atom<followList[]>({
   key: 'followingList',
   default: [{ id: 0, login: '', avatar_url: '' }],
 });
+
+export const followState = atom<string>({
+  key: 'followState',
+  default: 'follow',
+});
