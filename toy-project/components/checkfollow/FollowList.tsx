@@ -1,7 +1,7 @@
 'use client';
 
 import { getFollowerList, getFollowingList } from '@/apis/getFollowList';
-import { checkState, followState, followerList, followingList } from '@/recoil/atoms';
+import { checkState, followState, followerList, followingList, inputToken } from '@/recoil/atoms';
 import { followList } from '@/types/types';
 import { useEffect } from 'react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
@@ -12,10 +12,11 @@ export default function FollowList() {
   const [followings, setFollowings] = useRecoilState(followingList);
   const followBtnState = useRecoilValue(followState);
   const setCheckState = useSetRecoilState(checkState);
+  const inputTokenValue = useRecoilValue(inputToken);
 
   useEffect(() => {
-    getFollowingList(setFollowings);
-    getFollowerList(setFollowers);
+    getFollowingList(setFollowings, inputTokenValue);
+    getFollowerList(setFollowers, inputTokenValue);
   }, []);
 
   const followerID = followers.map(user => user.id);

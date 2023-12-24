@@ -3,12 +3,12 @@ import axios from 'axios';
 import { SetterOrUpdater } from 'recoil';
 
 const PER_PAGE = 100;
-export const getFollowingList = async (setFollowings: SetterOrUpdater<followList[]>) => {
+export const getFollowingList = async (setFollowings: SetterOrUpdater<followList[]>, tokenValue: string) => {
   try {
     const followingData = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/user/following?per_page=${PER_PAGE}`, {
       headers: {
         Accept: 'application/vnd.github+json',
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_GIT_TOKEN}`,
+        Authorization: `Bearer ${tokenValue}`,
       },
     });
 
@@ -25,12 +25,12 @@ export const getFollowingList = async (setFollowings: SetterOrUpdater<followList
   }
 };
 
-export const getFollowerList = async (setFollowers: SetterOrUpdater<followList[]>) => {
+export const getFollowerList = async (setFollowers: SetterOrUpdater<followList[]>, tokenValue: string) => {
   try {
     const followerData = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/user/followers?per_page=${PER_PAGE}`, {
       headers: {
         Accept: 'application/vnd.github+json',
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_GIT_TOKEN}`,
+        Authorization: `Bearer ${tokenValue}`,
       },
     });
     const data = followerData.data;

@@ -1,16 +1,17 @@
 'use client';
 
 import { getProfileInfo } from '@/apis/getProfileInfo';
-import { profileInfo } from '@/recoil/atoms';
+import { inputToken, profileInfo } from '@/recoil/atoms';
 import Image from 'next/image';
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 export default function Profile() {
   const [userInfo, setUserInfo] = useRecoilState(profileInfo);
+  const inputTokenValue = useRecoilValue(inputToken);
 
   useEffect(() => {
-    getProfileInfo(setUserInfo);
+    getProfileInfo(setUserInfo, inputTokenValue);
   }, []);
 
   const { login, bio, avatar_url, followers, following } = userInfo;
