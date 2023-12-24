@@ -1,20 +1,23 @@
 'use client';
 
-interface userInfoTypes {
-  id: number;
-  userName: string;
-  imageUrl: string;
-}
+import { checkState } from '@/recoil/atoms';
+import { followList } from '@/types/types';
+import Image from 'next/image';
+import { useRecoilValue } from 'recoil';
 
-export default function ListElement(props: userInfoTypes) {
-  const { id, userName, imageUrl } = props;
+export default function ListElement(props: followList) {
+  const selectState = useRecoilValue(checkState);
+  const { id, login, avatar_url } = props;
 
   return (
     <li className="flex h-[40px] w-full items-center gap-[10px] px-[44px]">
-      <i className="text-subTitle01">✔️</i>
-      {/* <Image src={imageUrl} alt="팔로우리스트-프로필이미지" width={40} height={40} className="rounded-full" /> */}
-      <div className="h-[40px] w-[40px] rounded-full bg-grey01"></div>
-      <span className="text-title01">{userName}</span>
+      {selectState ? (
+        <i className="h-[15px] w-[15px] text-subTitle01">✔️</i>
+      ) : (
+        <div className="h-[15px] w-[15px]"></div>
+      )}
+      <Image src={avatar_url} alt="팔로우리스트-프로필이미지" width={40} height={40} className="rounded-full" />
+      <span className="text-title01">{login}</span>
     </li>
   );
 }
