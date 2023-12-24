@@ -1,5 +1,7 @@
 import { ProfileType, followList } from '@/types/types';
 import { atom } from 'recoil';
+import { recoilPersist } from 'recoil-persist';
+const { persistAtom } = recoilPersist();
 
 export const profileInfo = atom<ProfileType>({
   key: 'profileInfo',
@@ -30,4 +32,10 @@ export const followState = atom<string>({
 export const checkState = atom<boolean>({
   key: 'checkState',
   default: false,
+});
+
+export const inputToken = atom<string>({
+  key: 'inputToken',
+  default: '',
+  effects_UNSTABLE: [persistAtom],
 });
