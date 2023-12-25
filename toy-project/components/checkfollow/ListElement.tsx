@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil';
 
 export default function ListElement(props: followList) {
   const selectState = useRecoilValue(checkState);
-  const { id, login, avatar_url } = props;
+  const { login, avatar_url } = props;
 
   return (
     <li className="flex h-[40px] w-full items-center gap-[10px] px-[44px]">
