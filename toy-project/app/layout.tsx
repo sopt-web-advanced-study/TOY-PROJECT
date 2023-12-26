@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import '@/styles/common.css';
+import RecoilRootWrapper from '@/utils/recoilRoot';
 
 export const metadata: Metadata = {
   title: '심심스 1조',
@@ -9,7 +11,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body className="commonFlex">
+        <RecoilRootWrapper>{children}</RecoilRootWrapper>
+      </body>
     </html>
   );
 }

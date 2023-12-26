@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .commonFlex {
+    @apply flex items-center justify-center;
+  }
+
+  .followBackButton {
+    @apply h-[4.5rem] w-[29.6rem] rounded-[5px] border-2 border-solid border-grey02 bg-sub01 text-title01 text-white;
+  }
+
+  .commonButton {
+    @apply rounded-3xl text-subTitle02 shadow-[0_4px_4px_0_rgba(0,0,0,0.25)];
+  }
+
+  .filteringFollowButton {
+    @apply h-[30px] w-[80px] rounded-[10px] bg-white text-subTitle02 text-black hover:bg-green hover:text-white;
+  }
+
+  .commonBackground {
+    @apply rounded-[10px] bg-main01;
+  }
+
+  .selectButtonTheme {
+    @apply h-[25px] w-[65px] bg-white text-black hover:bg-red hover:text-white;
+  }
+}

@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .maincontainer {
+    @apply h-[45rem] w-[34rem] flex-col gap-[2.4rem] rounded-[10px] bg-main01;
+  }
+  .userCheckTextWrapper {
+    @apply flex h-[3.9rem]  flex-col gap-[2.2rem];
+  }
+  .mainCommonButton {
+    @apply bg-sub02 text-subTitle02 text-black;
+  }
+}
