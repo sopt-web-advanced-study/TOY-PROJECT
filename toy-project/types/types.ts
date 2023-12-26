@@ -10,8 +10,8 @@ export interface followList {
   id: number;
   login: string;
   avatar_url: string;
+  onClick?: () => void;
 }
-
 export interface FollowUserType {
   avatar_url: string;
   events_url: string;
