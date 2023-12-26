@@ -1,7 +1,7 @@
 'use client';
 
 import { getFollowerList, getFollowingList } from '@/apis/getFollowList';
-import { checkState, followState, followerList, followingList, inputToken } from '@/recoil/atoms';
+import { checkState, followState, followerList, followingList, inputToken, loginClick } from '@/recoil/atoms';
 import { followList } from '@/types/types';
 import { useEffect } from 'react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
@@ -13,6 +13,7 @@ export default function FollowList() {
   const followBtnState = useRecoilValue(followState);
   const setCheckState = useSetRecoilState(checkState);
   const inputTokenValue = useRecoilValue(inputToken);
+  const [loginClickState, setLoginClickState] = useRecoilState(loginClick);
 
   useEffect(() => {
     getFollowingList(setFollowings, inputTokenValue);
@@ -42,6 +43,14 @@ export default function FollowList() {
     onClickRemove();
   }, [followBtnState]);
 
+  function handleClickLogin(login: string) {
+    setLoginClickState(prevlogin => (prevlogin === login ? ' ' : login));
+  }
+
+  useEffect(() => {
+    console.log(loginClickState);
+  }, [loginClickState, setLoginClickState]);
+
   return (
     <section className="commonBackground flex h-[480px] w-full flex-col">
       <div className="flex justify-end gap-[14px] px-[25px] py-[20px]">
@@ -64,7 +73,15 @@ export default function FollowList() {
             })
           : notFollowEachOther.map((user: followList) => {
               const { id, login, avatar_url } = user;
-              return <ListElement key={id} id={id} login={login} avatar_url={avatar_url} />;
+              return (
+                <ListElement
+                  onClick={() => handleClickLogin(login)}
+                  key={id}
+                  id={id}
+                  login={login}
+                  avatar_url={avatar_url}
+                />
+              );
             })}
       </div>
     </section>
