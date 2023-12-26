@@ -9,7 +9,7 @@ export default function ListElement(props: followList) {
   const selectState = useRecoilValue(checkState);
   const loginClickState = useRecoilValue(loginClick);
 
-  const { id, login, avatar_url, onClick } = props;
+  const { login, avatar_url, onClick } = props;
 
   return (
     <li className="flex h-[40px] w-full items-center gap-[10px] px-[44px]">
