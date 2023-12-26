@@ -39,3 +39,8 @@ export const inputToken = atom<string>({
   default: '',
   effects_UNSTABLE: [persistAtom],
 });
+
+export const loginClick = atom<string>({
+  key: 'loginClick',
+  default: ' ',
+});
